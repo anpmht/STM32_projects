@@ -1,0 +1,18 @@
+/*
+ * user.c
+ *
+ *  Created on: Sep 12, 2023
+ *      Author: anup
+ */
+#include "main.h"
+
+void run(){
+	printf("going in \n");
+	char msg[] = "this is time ";
+	char str[sizeof(msg) + sizeof(data)];
+	memcpy(str, msg, sizeof(msg));
+	while (1) {
+		memcpy(str + sizeof(msg), convert(HAL_GetTick()), sizeof(data));
+		HAL_UART_Transmit(&huart1, (uint8_t*) str, sizeof(str), HAL_MAX_DELAY);
+	}
+}

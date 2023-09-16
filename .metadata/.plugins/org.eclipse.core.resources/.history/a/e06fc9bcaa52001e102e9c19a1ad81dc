@@ -1,0 +1,21 @@
+/*
+ * user.c
+ *
+ *  Created on: Sep 14, 2023
+ *      Author: anup
+ */
+
+#include "main.h"
+#include "stdio.h"
+#include "string.h"
+#include "user.h"
+
+extern TIM_HandleTypeDef htim2;
+
+void setup(){
+
+}
+
+void loop(){
+
+}

@@ -1,0 +1,10 @@
+20:16:22 **** Incremental Build of configuration Debug for project External_signal_counter ****
+make -j4 all 
+arm-none-eabi-size   External_signal_counter.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10924	    136	   2048	  13108	   3334	External_signal_counter.elf
+Finished building: default.size.stdout
+ 
+
+20:16:22 Build Finished. 0 errors, 0 warnings. (took 375ms)
+

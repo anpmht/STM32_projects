@@ -1,0 +1,23 @@
+/*
+ * user.c
+ *
+ *  Created on: Sep 13, 2023
+ *      Author: anup
+ */
+
+#include "main.h"
+#include "user.h"
+
+extern TIM_HandleTypeDef htim2;
+
+void setup() {
+	HAL_TIM_Base_Start_IT(&htim2);
+}
+
+void loop() {
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_13);
+}

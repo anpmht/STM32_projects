@@ -1,0 +1,4 @@
+../Core/Src/user.c:28:6:setup	8	static
+../Core/Src/user.c:35:6:loop	4	static
+../Core/Src/user.c:39:6:HAL_TIM_IC_CaptureCallback	16	static
+../Core/Src/user.c:58:6:HAL_TIM_PeriodElapsedCallback	16	static

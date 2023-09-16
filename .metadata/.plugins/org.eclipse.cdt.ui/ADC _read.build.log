@@ -1,0 +1,23 @@
+12:04:55 **** Incremental Build of configuration Debug for project ADC _read ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/user.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/user.d" -MT"Core/Src/user.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/user.o"
+arm-none-eabi-gcc -o "ADC _read.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\anup\Desktop\STM32 board\ADC _read\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC _read.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC _read.elf
+ 
+arm-none-eabi-size   ADC\ _read.elf 
+arm-none-eabi-objdump -h -S  ADC\ _read.elf  > "ADC _read.list"
+arm-none-eabi-objcopy  -O ihex  ADC\ _read.elf  "ADC _read.hex"
+arm-none-eabi-objcopy  -O binary  ADC\ _read.elf  "ADC _read.bin"
+   text	   data	    bss	    dec	    hex	filename
+  31880	    476	   2028	  34384	   8650	ADC _read.elf
+Finished building: default.size.stdout
+Finished building: ADC _read.hex
+ 
+Finished building: ADC _read.bin
+ 
+ 
+Finished building: ADC _read.list
+ 
+
+12:04:59 Build Finished. 0 errors, 0 warnings. (took 3s.766ms)
+

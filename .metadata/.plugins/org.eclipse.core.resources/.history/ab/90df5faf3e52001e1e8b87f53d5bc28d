@@ -1,0 +1,28 @@
+/*
+ * user.c
+ *
+ *  Created on: Sep 13, 2023
+ *      Author: anup
+ */
+#include "main.h"
+#include "stdio.h"
+#include "string.h"
+
+extern TIM_HandleTypeDef htim2;
+extern UART_HandleTypeDef huart1;
+
+uint8_t END_MSG[35] = "Overflow Reached! Counter Reset!\n\r";
+
+void setup(){
+
+}
+
+void loop(){
+
+}
+
+// Counter Overflow ISR Handler
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
+{
+    HAL_UART_Transmit(&huart1, END_MSG, sizeof(END_MSG), 100);
+}

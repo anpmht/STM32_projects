@@ -1,0 +1,4 @@
+../Core/Src/user.c:17:5:_write	1
+../Core/Src/user.c:22:6:ADC_setup	1
+../Core/Src/user.c:28:6:Read_ADC	1
+../Core/Src/user.c:32:6:HAL_ADC_ConvCpltCallback	1

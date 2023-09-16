@@ -1,0 +1,19 @@
+15:59:04 **** Incremental Build of configuration Debug for project ADS1256_library ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/test.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/test.d" -MT"Core/Src/test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/test.o"
+arm-none-eabi-gcc -o "ADS1256_library.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\anup\Desktop\STM32 board\ADS1256_library\STM32F103R8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADS1256_library.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADS1256_library.elf
+ 
+arm-none-eabi-size   ADS1256_library.elf 
+arm-none-eabi-objdump -h -S  ADS1256_library.elf  > "ADS1256_library.list"
+   text	   data	    bss	    dec	    hex	filename
+   8628	    120	   1664	  10412	   28ac	ADS1256_library.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADS1256_library.list
+ 
+arm-none-eabi-objcopy -O ihex ADS1256_library.elf ADS1256_library.hex
+ 
+
+15:59:06 Build Finished. 0 errors, 0 warnings. (took 2s.400ms)
+

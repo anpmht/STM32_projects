@@ -1,0 +1,4 @@
+../Core/Src/user.c:17:5:_write	24	static
+../Core/Src/user.c:22:6:ADC_setup	8	static
+../Core/Src/user.c:28:6:Read_ADC	4	static
+../Core/Src/user.c:32:6:HAL_ADC_ConvCpltCallback	16	static

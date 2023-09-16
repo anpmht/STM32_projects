@@ -1,0 +1,12 @@
+14:36:03 **** Incremental Build of configuration Debug for project Digital_read ****
+make -j4 all 
+arm-none-eabi-size   Digital_read.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6084	     20	   1644	   7748	   1e44	Digital_read.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy -O ihex Digital_read.elf Digital_read.hex
+ 
+
+14:36:04 Build Finished. 0 errors, 0 warnings. (took 697ms)
+

@@ -1,0 +1,80 @@
+/*
+ * test.c
+ *
+ *  Created on: Dec 8, 2022
+ *      Author: anup
+ */
+#include "main.h"
+#include "test.h"
+#include "stdio.h"
+#include "string.h"
+#include "adsSetup.h"
+#include "sdSetup.h"
+#include "adcSetup.h"
+#include "timeSetup.h"
+#include "stm32f1xx_hal.h"
+#include "sd_card.h"
+#include "fatfs.h"
+#include "fatfs_sd.h"
+
+extern UART_HandleTypeDef huart1;
+
+char file[10] = "data.txt";
+char logdata[4096];
+int count = 0;
+int n = 0;
+int id = 0;
+int f = 0;
+int g = 0;
+
+int _write(int fd, char *data, int len) {
+	HAL_UART_Transmit(&huart1, (uint8_t*) data, len, HAL_MAX_DELAY);
+	return len;
+}
+
+void print(char *data) {
+//	HAL_UART_Transmit(&huart1, (uint8_t*) data, len, HAL_MAX_DELAY);
+}
+
+void setup(void) {
+	adsSetup();
+	sdSetup();
+	timeSetup();
+}
+
+void loop() {
+	if (sd_open(file, FA_WRITE) != FR_OK) {
+		printf("file open failed\n");
+		HAL_Delay(2000);
+		return;
+	}
+	printf("file opened\n");
+	while ((int) HAL_GetTick() < 60000) {
+		n += sprintf(logdata + n, "%d,", id);
+		n += sprintf(logdata + n, "%d,", (int) HAL_GetTick());
+		n += sprintf(logdata + n, "%s,", adsGetdata());
+		n += sprintf(logdata + n, "%.2f,", getExcitation());
+		n += sprintf(logdata + n, "%s\n", getTime());
+		id++;
+		if (n > 3500) {
+			f = (int) HAL_GetTick();
+			if (sd_append(logdata) != FR_OK) {
+				printf("file write failed\n");
+				return;
+			}
+			memset(logdata, 0, sizeof(logdata));
+			g = (int) HAL_GetTick() - f;
+			printf("%d\t%d\t%d\t", g, id, (int) HAL_GetTick());
+			printf("\n");
+			n = 0;
+		}
+	}
+	if (sd_close() != FR_OK) {
+		printf("file close failed\n");
+		HAL_Delay(2000);
+		return;
+	}
+	printf("Log complete\n");
+	HAL_Delay(2000);
+}
+

@@ -1,0 +1,18 @@
+14:24:34 **** Incremental Build of configuration Debug for project PWM ****
+make -j4 all 
+arm-none-eabi-gcc -o "PWM.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\anup\Desktop\STM32 board\PWM\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PWM.elf
+ 
+arm-none-eabi-size   PWM.elf 
+arm-none-eabi-objdump -h -S  PWM.elf  > "PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+   8136	     20	   1644	   9800	   2648	PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: PWM.list
+ 
+arm-none-eabi-objcopy -O ihex PWM.elf PWM.hex
+ 
+
+14:24:35 Build Finished. 0 errors, 0 warnings. (took 1s.182ms)
+
